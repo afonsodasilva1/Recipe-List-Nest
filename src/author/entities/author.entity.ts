@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('author')
 export class Author {
@@ -13,4 +13,7 @@ export class Author {
     
     @Column()
     dateOfBirth: string;
+
+    @OneToOne(() => Author, (author) => author.contact)
+    contact: Author;
 }
