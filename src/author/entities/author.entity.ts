@@ -14,6 +14,6 @@ export class Author {
     @Column()
     dateOfBirth: string;
 
-    @OneToOne(() => Author, (author) => author.contact)
+    @OneToOne(() => Author, (author) => author.contact, { eager: true, cascade: true })
     contact: Author;
 }
