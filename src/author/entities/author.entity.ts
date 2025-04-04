@@ -1,3 +1,4 @@
+import { Contact } from "src/contact/entities/contact.entity";
 import { Recipe } from "src/recipe/entities/recipe.entity";
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -15,8 +16,8 @@ export class Author {
     @Column()
     dateOfBirth: string;
 
-    @OneToOne(() => Author, (author) => author.contact, { eager: true, cascade: true })
-    contact: Author;
+    @OneToOne(() => Contact, (contact) => contact.author, { eager: true, cascade: true })
+    contact: Contact;
 
     @OneToMany(() => Author, (author) => author.recipes, { eager: true })
     recipes: Recipe[]
