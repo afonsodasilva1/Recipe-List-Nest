@@ -5,6 +5,7 @@ import { DevelopersModule } from './author/author.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ContactModule } from './contact/contact.module';
 import { RecipeModule } from './recipe/recipe.module';
+import { FavoriteModule } from './favorite/favorite.module';
 
 @Module({
   imports: [
@@ -19,7 +20,9 @@ import { RecipeModule } from './recipe/recipe.module';
 
     ContactModule,
 
-    RecipeModule
+    RecipeModule,
+
+    FavoriteModule
   ],
   controllers: [AppController],
   providers: [AppService],
