@@ -1,4 +1,5 @@
-import { IsDateString, IsEmail, IsString, MinLength } from "class-validator";
+import { IsDateString, IsEmail, IsNotEmpty, IsString, MinLength } from "class-validator";
+import { Contact } from "src/contact/entities/contact.entity";
 
 export class CreateAuthorDto {
 
@@ -11,4 +12,7 @@ export class CreateAuthorDto {
 
     @IsDateString()
     dateOfBirth: string;
+
+    @IsNotEmpty()
+    contact: Contact
 }
