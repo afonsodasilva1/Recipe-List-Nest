@@ -1,5 +1,5 @@
 import { Author } from "src/author/entities/author.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('recipe')
 export class Recipe {
@@ -12,6 +12,7 @@ export class Recipe {
     @Column()
     description: string
 
-    @OneToMany(() => Author , (author) => author.recipe)
+    @ManyToOne(() => Author , (author) => author.recipes)
+    @JoinColumn({ name: 'authorId'})
     author: Author
 }
