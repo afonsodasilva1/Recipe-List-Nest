@@ -1,6 +1,7 @@
-import { IsDateString, IsEmail, IsString, MaxLength, MinLength } from "class-validator";
+import { IsDateString, IsEmail, IsString, MinLength } from "class-validator";
 
-export class CreateDeveloperDto {
+export class CreateAuthorDto {
+
     @IsString()
     @MinLength(6)
     name: string;

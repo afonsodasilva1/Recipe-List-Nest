@@ -1,19 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDeveloperDto } from './dto/create-developer.dto';
-import { UpdateDeveloperDto } from './dto/update-developer.dto';
+import { CreateAuthorDto } from './dto/create-author.dto';
+import { UpdateAuthorDto } from './dto/update-author.dto';
 import { Repository } from 'typeorm';
-import { Developer } from './entities/developer.entity';
+import { Author } from './entities/author.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
-export class DevelopersService {
+export class AuthorService {
   
   constructor(
-    @InjectRepository(Developer)
-    private readonly repository: Repository<Developer>
+    @InjectRepository(Author)
+    private readonly repository: Repository<Author>
   ) {}
 
-  create(dto: CreateDeveloperDto) {
+  create(dto: CreateAuthorDto) {
     const developer = this.repository.create(dto);
     return this.repository.save(developer);
   }
@@ -26,7 +26,7 @@ export class DevelopersService {
     return this.repository.findOneBy({id});
   }
 
-  async update(id: string, dto: UpdateDeveloperDto) {
+  async update(id: string, dto: UpdateAuthorDto) {
     const developer = await  this.repository.findOneBy({id});
     if(!developer) return null;
     this.repository.merge(developer, dto);
