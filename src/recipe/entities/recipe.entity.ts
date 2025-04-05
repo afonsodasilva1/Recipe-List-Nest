@@ -12,7 +12,7 @@ export class Recipe {
     @Column()
     description: string
 
-    @ManyToOne(() => Author , (author) => author.recipes)
+    @ManyToOne(() => Author , (author) => author.recipes, { eager: true })
     @JoinColumn({ name: 'authorId'})
     author: Author
 

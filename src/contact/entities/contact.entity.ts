@@ -1,3 +1,4 @@
+import { IsPhoneNumber } from "class-validator";
 import { Author } from "src/author/entities/author.entity";
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
 

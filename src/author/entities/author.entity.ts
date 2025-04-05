@@ -10,7 +10,7 @@ export class Author {
     @Column()
     name: string;
     
-    @Column()
+    @Column({ unique: true})
     email: string;
     
     @Column()
@@ -19,6 +19,6 @@ export class Author {
     @OneToOne(() => Contact, (contact) => contact.author, { eager: true, cascade: true })
     contact: Contact;
 
-    @OneToMany(() => Author, (author) => author.recipes, { eager: true })
+    @OneToMany(() => Author, (author) => author.recipes )
     recipes: Recipe[]
 }
