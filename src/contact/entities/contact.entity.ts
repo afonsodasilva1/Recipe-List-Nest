@@ -13,7 +13,7 @@ export class Contact {
     @Column()
     address: string;
 
-    @OneToOne(() => Author, (author) => author.contact)
+    @OneToOne(() => Author, (author) => author.contact, { onDelete: 'CASCADE'})
     @JoinColumn({ name: 'authorId' })
     author: Author;
 }
