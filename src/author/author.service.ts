@@ -35,6 +35,8 @@ export class AuthorService {
 
   async remove(id: string) {
     const developer = await  this.repository.findOneBy({id});
+
+    console.log(developer)
     if(!developer) return null;
     return this.repository.remove(developer);
   }
